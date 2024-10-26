@@ -1,19 +1,30 @@
 package com.example.Proyecto_Final.modelo;
 
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "usuarios")
 public class Usuario {
+    
     @Id
     private String id;
-    private String nombre;
-    private String correoElectronico;
-    private String contraseña;
-    private String perfil; // Cliente o Administrador
-    private String username; // Nuevo campo
 
-    // Getters y Setters
+    @Field("nombre")
+    private String nombre;
+
+    @Field("correoElectronico")
+    private String correoElectronico;
+
+    @Field("contraseña")
+    private String contraseña;
+
+    @Field("perfil")
+    private String perfil;
+
+    @Field("username")
+    private String username; 
+
     public String getId() {
         return id;
     }

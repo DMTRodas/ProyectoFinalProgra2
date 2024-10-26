@@ -10,9 +10,8 @@ public class Contacto {
     private String nombre;
     private String telefono;
     private String correoElectronico;
-    private String empresaId;  // Referencia a la empresa
+    private String empresaId;
 
-    // Getters y Setters
     public String getId() {
         return id;
     }

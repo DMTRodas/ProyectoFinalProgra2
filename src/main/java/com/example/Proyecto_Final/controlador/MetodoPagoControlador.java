@@ -24,19 +24,16 @@ public class MetodoPagoControlador {
     @Autowired
     private MetodoPagoServicio metodoPagoServicio;
 
-    // Crear un nuevo método de pago
     @PostMapping
     public MetodoPago crearMetodoPago(@RequestBody MetodoPago metodoPago) {
         return metodoPagoServicio.crearMetodoPago(metodoPago);
     }
 
-    // Obtener todos los métodos de pago
     @GetMapping
     public List<MetodoPago> obtenerMetodosPago() {
         return metodoPagoServicio.obtenerMetodosPago();
     }
 
-    // Obtener un método de pago por ID
     @GetMapping("/{id}")
     public ResponseEntity<MetodoPago> obtenerMetodoPagoPorId(@PathVariable String id) {
         Optional<MetodoPago> metodoPagoOpt = metodoPagoServicio.obtenerMetodoPagoPorId(id);
@@ -44,7 +41,6 @@ public class MetodoPagoControlador {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Actualizar un método de pago
     @PutMapping("/{id}")
     public ResponseEntity<MetodoPago> actualizarMetodoPago(@PathVariable String id, @RequestBody MetodoPago metodoPago) {
         Optional<MetodoPago> metodoPagoOpt = metodoPagoServicio.obtenerMetodoPagoPorId(id);
@@ -61,7 +57,6 @@ public class MetodoPagoControlador {
         }
     }
 
-    // Eliminar un método de pago por ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMetodoPago(@PathVariable String id) {
         metodoPagoServicio.eliminarMetodoPago(id);

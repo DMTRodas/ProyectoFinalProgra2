@@ -1,0 +1,67 @@
+.cliente-card {
+  border: 1px solid #ccc;
+  border-radius: 8px; 
+  padding: 15px;
+  margin-bottom: 15px; 
+  background-color: #f9f9f9; 
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1); 
+  text-align: left; 
+}
+
+.cliente-card h3 {
+  margin: 0;
+  font-size: 20px;
+  text-align: left; 
+}
+
+.cliente-info p {
+  margin: 5px 0;
+}
+
+.cliente-btns {
+  margin-top: 10px;
+}
+
+.cliente-btns button {
+  margin-right: 10px;
+}
+
+.btn-editar {
+  background-color: #a89333; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-editar:hover {
+  background-color: #45a049; 
+}
+
+.btn-eliminar {
+  background-color: #8d2821; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background-color: #5a1515; 
+}
+
+.btn-atras {
+  background-color: #13485a;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.btn-atras:hover {
+  background-color: #0b2d3d;
+}

@@ -1,0 +1,29 @@
+.buscar-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .buscar-input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .sugerencias {
+    margin-top: 20px;
+  }
+  
+  .sugerencia-btn {
+    margin: 5px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .sugerencia-btn:hover {
+    background-color: #ddd;
+  }
+  

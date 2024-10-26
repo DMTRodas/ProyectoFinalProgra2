@@ -24,19 +24,16 @@ public class ContactoControlador {
     @Autowired
     private ContactoServicio contactoServicio;
 
-    // Crear un nuevo contacto
     @PostMapping
     public Contacto crearContacto(@RequestBody Contacto contacto) {
         return contactoServicio.crearContacto(contacto);
     }
 
-    // Obtener todos los contactos
     @GetMapping
     public List<Contacto> obtenerContactos() {
         return contactoServicio.obtenerContactos();
     }
 
-    // Obtener un contacto por ID
     @GetMapping("/{id}")
     public ResponseEntity<Contacto> obtenerContactoPorId(@PathVariable String id) {
         Optional<Contacto> contactoOpt = contactoServicio.obtenerContactoPorId(id);
@@ -44,7 +41,6 @@ public class ContactoControlador {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Actualizar un contacto
     @PutMapping("/{id}")
     public ResponseEntity<Contacto> actualizarContacto(@PathVariable String id, @RequestBody Contacto contacto) {
         Optional<Contacto> contactoOpt = contactoServicio.obtenerContactoPorId(id);
@@ -61,7 +57,6 @@ public class ContactoControlador {
         }
     }
 
-    // Eliminar un contacto por ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarContacto(@PathVariable String id) {
         contactoServicio.eliminarContacto(id);

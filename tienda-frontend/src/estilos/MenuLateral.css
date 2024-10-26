@@ -1,0 +1,81 @@
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -350px; 
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    transition: left 0.9s ease; 
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+  }
+  
+  .menu-lateral.open {
+    left: 0; 
+  }
+  
+  .close-btn {
+    font-size: 24px;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    margin: 20px 0; 
+  }
+  
+  nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .auth-buttons {
+    margin-top: auto; 
+  }
+  
+  .auth-buttons .btn {
+    display: block;
+    background-color: #b3a16b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 35px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .auth-buttons .btn:hover {
+    background-color: #a0925c;
+  }
+  
+  .menu-btn {
+    position: absolute;
+    top: 3.5%; 
+    left: 5px; 
+    transform: translateY(-50%); 
+    z-index: 1001;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: black; 
+}
+
+.menu-btn.hidden {
+  display: none;
+}

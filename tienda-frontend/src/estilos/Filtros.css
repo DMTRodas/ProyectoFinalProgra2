@@ -1,0 +1,16 @@
+.home-container {
+    padding: 20px;
+  }
+  
+  .home-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .articulo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  

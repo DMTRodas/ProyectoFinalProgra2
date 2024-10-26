@@ -7,12 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class MetodoPago {
     @Id
     private String id;
-    private String tipo;  // Ejemplo: "Tarjeta de Crédito", "Tarjeta de Débito", "Depósito"
-    private String proveedor;  // Ejemplo: "Visa", "Mastercard", "PayPal"
+    private String tipo;  
+    private String proveedor;  
     private String numeroCuenta;
     private String titular;
 
-    // Getters y Setters
     public String getId() {
         return id;
     }

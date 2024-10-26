@@ -1,0 +1,17 @@
+.articulo {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+  }
+  .articulo img {
+    width: 100%;
+    height: auto;
+  }
+  .btn-agregar-carrito {
+    background-color: #f80;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

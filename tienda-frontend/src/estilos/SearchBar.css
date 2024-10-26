@@ -1,0 +1,32 @@
+.search-bar {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .search-input {
+    width: 300px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .suggestions {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .suggestion-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .suggestion-btn:hover {
+    background-color: #ddd;
+  }
+  

@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "articulos")
 public class Articulo {
+
     @Id
     private String id;
     private String nombre;
@@ -13,8 +14,11 @@ public class Articulo {
     private String subcategoria;
     private double precio;
     private int stock;
+    private String imagenUrl;
+    private String genero;
+    private int cantidad; 
+    private String proveedorId;
 
-    // Getters y Setters
     public String getId() {
         return id;
     }
@@ -70,5 +74,38 @@ public class Articulo {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getProveedorId() {
+        return proveedorId;
+    }
+
+    public void setProveedorId(String proveedorId) {
+        this.proveedorId = proveedorId;
+    }
 }
+
 

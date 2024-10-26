@@ -1,28 +1,40 @@
 package com.example.Proyecto_Final.servicio;
 
-import org.springframework.stereotype.Service;
-
 import com.example.Proyecto_Final.modelo.Carrito;
+import com.example.Proyecto_Final.repositorio.CarritoRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 @Service
 public class CarritoServicio {
 
-    private Carrito carrito = new Carrito();
+    @Autowired
+    private CarritoRepositorio carritoRepositorio;
 
-    public Carrito obtenerCarrito() {
-        return carrito;
+    public Carrito obtenerCarritoPorCliente(String idCliente) {
+        Optional<Carrito> carritoOpt = carritoRepositorio.findFirstByIdCliente(idCliente);
+        return carritoOpt.orElseGet(() -> new Carrito(idCliente));
     }
 
-    public void eliminarArticulo(String articuloId) {
-        carrito.getArticulos().removeIf(articulo -> articulo.getArticulo().getId().equals(articuloId));
+    public void guardarCarrito(Carrito carrito) {
+        carritoRepositorio.save(carrito);
     }
 
-    public void vaciarCarrito() {
-        carrito.getArticulos().clear();
+    public void eliminarArticuloDelCarrito(String idCliente, String idProducto) {
+        Carrito carrito = obtenerCarritoPorCliente(idCliente);
+        if (carrito != null) {
+            carrito.eliminarArticulo(idProducto); 
+            guardarCarrito(carrito);
+        }
     }
 
-    // Método para limpiar el carrito
-    public void limpiarCarrito() {
-        carrito.getArticulos().clear(); 
+    public void vaciarCarrito(String idCliente) {
+        Carrito carrito = obtenerCarritoPorCliente(idCliente);
+        if (carrito != null) {
+            carrito.getArticulos().clear();
+            guardarCarrito(carrito);  
+        }
     }
 }
+    

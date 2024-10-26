@@ -7,5 +7,5 @@ import com.example.Proyecto_Final.modelo.Contacto;
 
 @Repository
 public interface ContactoRepositorio extends MongoRepository<Contacto, String> {
-   
+
 }

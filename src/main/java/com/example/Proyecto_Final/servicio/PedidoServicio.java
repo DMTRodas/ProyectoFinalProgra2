@@ -1,11 +1,10 @@
 package com.example.Proyecto_Final.servicio;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.example.Proyecto_Final.dto.PedidoDTO;
 import com.example.Proyecto_Final.modelo.Pedido;
 import com.example.Proyecto_Final.repositorio.PedidoRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class PedidoServicio {
@@ -13,18 +12,22 @@ public class PedidoServicio {
     @Autowired
     private PedidoRepositorio pedidoRepositorio;
 
-    @Autowired
-    private CarritoServicio carritoServicio;
-
-    public Pedido crearPedido(PedidoDTO pedidoDTO) {
-        Pedido pedido = new Pedido();
-        pedido.setArticulos(pedidoDTO.getArticulos());
-        pedido.setTotal(pedidoDTO.getTotal());
-        pedido.setMetodoPago(pedidoDTO.getMetodoPago());
-        
-        // Limpiar el carrito después de confirmar el pedido
-        carritoServicio.limpiarCarrito();
-        
+    public Pedido crearPedido(Pedido pedido) {
         return pedidoRepositorio.save(pedido);
+    }
+
+    public List<Pedido> obtenerPedidosPorCliente(String idCliente) {
+        return pedidoRepositorio.findByIdCliente(idCliente);
+    }
+
+    public void eliminarPedido(String idPedido) {
+        pedidoRepositorio.deleteById(idPedido);
+    }
+
+    public void guardarPedido(Pedido pedido) {
+        pedidoRepositorio.save(pedido); 
+    }
+    public List<Pedido> obtenerTodosLosPedidos() {
+        return pedidoRepositorio.findAll();
     }
 }
