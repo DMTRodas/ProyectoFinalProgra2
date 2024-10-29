@@ -15,6 +15,14 @@ public class UsuarioControlador {
     @Autowired
     private UsuarioServicio usuarioServicio;
 
+    @PostMapping("/admin/agregar")
+    public ResponseEntity<Usuario> agregarAdministrador(@RequestBody Usuario usuario) {
+    usuario.setPerfil("Administrador"); 
+    Usuario nuevoAdmin = usuarioServicio.crearUsuario(usuario);
+    return ResponseEntity.ok(nuevoAdmin);
+}
+
+
     @PostMapping("/registro")
     public ResponseEntity<String> registrarUsuario(@RequestBody Usuario usuario) {
         try {
@@ -32,7 +40,7 @@ public class UsuarioControlador {
     
         if (usuarioEncontrado != null) {
             if (usuarioEncontrado.getContraseña().equals(usuario.getContraseña())) {
-                if ("ADMINISTRADOR".equals(usuarioEncontrado.getPerfil())) {
+                if ("Administrador".equals(usuarioEncontrado.getPerfil())) {
                     return ResponseEntity.ok("Inicio de sesión exitoso como administrador");
                 } else if ("CLIENTE".equals(usuarioEncontrado.getPerfil())) {
                     return ResponseEntity.ok(usuarioEncontrado);
@@ -47,3 +55,4 @@ public class UsuarioControlador {
         }
     }
 }    
+

@@ -12,11 +12,12 @@ const MenuLateral = ({ isOpen, toggleMenu }) => {
           <li><Link to="/mujer" onClick={toggleMenu}>Mujer</Link></li>
           <li><Link to="/accesorios" onClick={toggleMenu}>Accesorios</Link></li>
           <li><Link to="/nosotros" onClick={toggleMenu}>Nosotros</Link></li> 
+          <li><Link to="/contacto" onClick={toggleMenu}>Contactanos</Link></li> 
           <li><Link to="/" onClick={toggleMenu}>Volver al inicio</Link></li>
             <div className="section">
             <img 
             src="/images/t.png" 
-            alt="logo" 
+            alt="logo"
             className="section-image" 
             />
             </div>

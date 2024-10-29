@@ -22,6 +22,7 @@ const Inventario = () => {
 
   return (
     <div>
+      <button onClick={volverAlDashboard}>Atrás</button>
     <h2>Inventario</h2>
     <table>
     <thead>
@@ -36,8 +37,8 @@ const Inventario = () => {
     <tbody>
       {productos.map((producto) => (
       <tr key={producto.id}>
-      <td>{producto.imagenUrl}</td>
       <td>{producto.id}</td>
+      <img src={producto.imagenUrl} alt={producto.nombre} className="producto-imagen" />
       <td>{producto.nombre}</td>
       <td>{producto.descripcion}</td>
       <td>{producto.categoria}</td>
@@ -45,7 +46,6 @@ const Inventario = () => {
       <td>{producto.stock}</td></tr>))}
     </tbody>
     </table>
-      <button onClick={volverAlDashboard}>Atrás</button>
     </div>
   );
 };

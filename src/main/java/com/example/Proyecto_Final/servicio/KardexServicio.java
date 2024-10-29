@@ -46,5 +46,6 @@ public class KardexServicio {
     public List<Kardex> obtenerTodosLosMovimientos() {
         return kardexRepositorio.findAll();
     }
+
 }
 

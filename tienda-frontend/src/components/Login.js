@@ -24,6 +24,8 @@ const Login = () => {
         navigate('/admin/dashboard');
       } else if (response.data.perfil === 'CLIENTE') {
         setCliente(response.data);  
+        localStorage.setItem('clienteId', response.data.id);  
+        console.log("clienteId guardado:", response.data.id); 
         navigate('/', { state: { cliente: response.data.nombre } });
       } else {
         alert('Credenciales incorrectas o no autorizado');

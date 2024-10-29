@@ -3,6 +3,8 @@ package com.example.Proyecto_Final.modelo;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import java.util.List;
+import java.time.LocalDateTime;
+
 
 @Document(collection = "pedidos")
 public class Pedido {
@@ -20,6 +22,7 @@ public class Pedido {
     private List<Articulo> articulos;
     private List<Articulo> carrito;
     private double total;
+    private LocalDateTime fecha;
 
     public List<Articulo> getCarrito() {
         return carrito;
@@ -115,5 +118,13 @@ public class Pedido {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public LocalDateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDateTime fecha) {
+        this.fecha = fecha;
     }
 }

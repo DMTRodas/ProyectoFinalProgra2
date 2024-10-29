@@ -13,7 +13,8 @@ const Carrito = () => {
         if (!clienteId) {
             console.error("Cliente no identificado");
             alert("Cliente no identificado");
-            return;}
+            return;
+        }
         try {
             const response = await AxiosConfig.get(`/carrito/${clienteId}`);
             const articulos = response.data.articulos.map((articulo) => {
@@ -36,10 +37,12 @@ const Carrito = () => {
     const actualizarCantidad = async (idProducto, cantidad) => {
         if (!clienteId) {
             console.error("Cliente no identificado");
-            return;}
+            return;
+        }
         try {
         const response = await AxiosConfig.put(`/carrito/actualizar-cantidad/${clienteId}/${idProducto}`, { cantidad });
-        console.log("Cantidad actualizada correctamente", response); //
+        console.log("Cantidad actualizada correctamente", response);
+
         const carritoActualizado = carrito.map(item => {
         if (item.id === idProducto) {
         return { ...item, cantidad: parseInt(cantidad, 10) };}
@@ -75,7 +78,7 @@ const Carrito = () => {
             <h2>Carrito de Compras</h2>
             <div className="productos-container">
             {carrito && carrito.length > 0 ? (
-            carrito.map((item, index) => (
+                carrito.map((item, index) => (
                 <div key={item.id + index} className="producto-carrito">
                 <img src={item.imagenUrl} alt={item.nombreProducto} className="imagen-producto" />
                 <div className="info-producto">
@@ -116,5 +119,6 @@ const Carrito = () => {
          </div>
     );
 };
+
 export default Carrito;
 

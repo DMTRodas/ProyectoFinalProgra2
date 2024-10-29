@@ -87,4 +87,10 @@ public class ArticuloControlador {
         return ResponseEntity.ok(articulos);
     }
 
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Articulo>> buscarProductos(@RequestParam String query) {
+    List<Articulo> articulos = articuloServicio.obtenerArticulosPorCategoria(query);
+    return ResponseEntity.ok(articulos);
+    }
+
 }

@@ -38,6 +38,7 @@ const Checkout = () => {
   const realizarPedido = async () => {
     if (isSubmitting) return;
     setIsSubmitting(true);
+
     const pedido = {
       clienteId,
       nombre,

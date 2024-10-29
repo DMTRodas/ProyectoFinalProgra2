@@ -1,22 +1,20 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HistorialTransacciones = () => {
-  const navigate = useNavigate();
-  const irAKardex = () => {
-    navigate('/kardex');};
+    const navigate = useNavigate();
 
-  const irAHistorialVentas = () => {
-    navigate('/admin/historial-ventas');};
-
-  return (
-    <div>
-    <h2>Historial de Transacciones</h2>
-    <div>
-    <button onClick={irAKardex}>Generar Kardex</button></div>
-    <div>
-    <button onClick={irAHistorialVentas}>Generar Historial de Ventas</button></div>
-    </div>);
+    const volverAlDashboard = () => {
+        navigate('/admin/dashboard');
+      };
+    
+    return (
+        <div>
+            <button onClick={volverAlDashboard}>Atrás</button>
+            <h2>Historial de Transacciones</h2>
+            <button onClick={() => navigate('/kardex')}>Generar Kardex</button>
+            <button onClick={() => navigate('/admin/historial-ventas')}>Generar Historial de Ventas</button>
+        </div>
+    );
 };
 
 export default HistorialTransacciones;

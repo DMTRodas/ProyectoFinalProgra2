@@ -11,7 +11,7 @@ const CompraExitosa = () => {
   return (
     <div className="compra-exitosa-container">
     <h2>¡Compra realizada con éxito!</h2>
-    <p>Tu número de pedido es:<strong>{idPedido}</strong></p>
+    <p>Tu número de pedido es: <strong>{idPedido}</strong></p>
     <h3>{idPedido}</h3>
     <button onClick={volverALaTienda}>Volver a la tienda</button>
     </div>);

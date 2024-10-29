@@ -13,6 +13,9 @@ const ProveedorPedidos = () => {
   const [cantidades, setCantidades] = useState({});
   const navigate = useNavigate();
 
+  const volverAlDashboard = () => {
+    navigate('/admin/dashboard');};
+
   const cargarProveedores = async () => {
     const data = await obtenerProveedores();
     setProveedores(data);
@@ -52,6 +55,7 @@ const ProveedorPedidos = () => {
   };
   return (
     <div className="proveedor-pedidos-container">
+      <button onClick={volverAlDashboard}>Atrás</button>
       <h2>Proveedores y Pedidos</h2>
       <div className="menu-pedidos">
       <button onClick={handleVerProveedores}>Ver listado de proveedores</button>
@@ -77,7 +81,12 @@ const ProveedorPedidos = () => {
               <option value="">Selecciona una categoría</option>
               <option value="bolsas">Bolsas</option>
               <option value="vestidos">Vestidos</option>
-              <option value="chaquetas">Chaquetas</option></select>
+              <option value="chaquetas">Chaquetas</option>
+              <option value="playera">Playeras</option>
+              <option value="bolsas">Bolsas</option>
+              <option value="camisa">Camisas</option>
+              </select>
+              
             </label>
             <label>
               Selecciona el proveedor:

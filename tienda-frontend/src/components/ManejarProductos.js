@@ -132,6 +132,7 @@ const ManejarProductos = () => {
   };
   return (
     <div className="manejar-productos-container">
+      <button onClick={volverAlDashboard}>Atrás</button>
       <h2>Manejar Productos</h2>
       <div className="productos-list">
         {productos.map((producto, index) => (
@@ -287,7 +288,6 @@ const ManejarProductos = () => {
             <input type="file" onChange={manejarCambioImagen} />
             <button type="submit" className="guardar-btn">Guardar Cambios</button></form>
         </div>)}
-      <button onClick={volverAlDashboard}>Atrás</button>
     </div>
   );
 };

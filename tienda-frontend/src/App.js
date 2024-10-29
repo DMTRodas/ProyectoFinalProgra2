@@ -16,7 +16,8 @@ import MenuLateral from './components/MenuLateral';
 import Header from './components/Header';
 import Buscar from './components/Buscar';
 import Nosotros from './components/Nosotros';
-import { ClienteProvider } from './components/ClienteContext'; 
+import Contacto from './components/Contacto';
+import { ClienteProvider } from './components/ClienteContext';
 import Checkout from './components/Checkout';
 import CompraExitosa from './components/CompraExitosa';
 import ManejarProveedores from './components/ManejarProveedores';
@@ -26,6 +27,8 @@ import ResumenPedido from './components/ResumenPedido';
 import Kardex from './components/Kardex';
 import HistorialTransacciones from './components/HistorialTransacciones';
 import HistorialVentas from './components/HistorialVentas';
+import ReportesAdmin from './components/ReportesAdmin';
+import GestionarAdministradores from './components/GestionarAdministradores';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +38,7 @@ function App() {
   };
 
   return (
-    <ClienteProvider> 
+    <ClienteProvider>
       <Router>
         <AppContent isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       </Router>
@@ -46,21 +49,21 @@ function App() {
 function AppContent({ isMenuOpen, toggleMenu }) {
   const location = useLocation();
 
-  const isAdminRoute = location.pathname.includes('/admin');
+  const isAdminRoute = location.pathname.includes('/admin') || location.pathname === '/kardex';
 
   return (
     <div className="app">
-      <header>
-        <Header />
-        {!isAdminRoute && (
+      {!isAdminRoute && (
+        <header>
+          <Header toggleMenu={toggleMenu} />
           <>
-            <button className="menu-btn" onClick={toggleMenu}>
-              &#9776;
-            </button>
-            <MenuLateral isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-          </>
-        )}
-      </header>
+      <button className="menu-btn" onClick={toggleMenu}>
+      &#9776;
+      </button>
+      <MenuLateral isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      </>
+        </header>
+      )}
       <Routes>
         <Route path="/api/usuarios/login" element={<Login />} />
         <Route path="/" element={<Home />} />
@@ -71,14 +74,14 @@ function AppContent({ isMenuOpen, toggleMenu }) {
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/pedido" element={<Pedido />} />
         <Route path="/registro" element={<Registro />} />
+        <Route path="/buscar" element={<Buscar toggleMenu={toggleMenu} />} />
+        <Route path="/nosotros" element={<Nosotros toggleMenu={toggleMenu} />} />
+        <Route path="/contacto" element={<Contacto toggleMenu={toggleMenu} />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/compra-exitosa" element={<CompraExitosa />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/productos" element={<ManejarProductos />} />
         <Route path="/admin/inventario" element={<Inventario />} />
-        <Route path="/buscar" element={<Buscar toggleMenu={toggleMenu} />} />
-        <Route path="/nosotros" element={<Nosotros toggleMenu={toggleMenu} />} />
-        <Route path="/carrito" element={<Carrito />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/compra-exitosa" element={<CompraExitosa />} />
         <Route path="/admin/proveedores" element={<ManejarProveedores />} />
         <Route path="/admin/clientes" element={<ManejarClientes />} />
         <Route path="/admin/proveedores-pedido" element={<ProveedorPedidos />} />
@@ -86,6 +89,8 @@ function AppContent({ isMenuOpen, toggleMenu }) {
         <Route path="/kardex" element={<Kardex />} />
         <Route path="/admin/historial-transacciones" element={<HistorialTransacciones />} />
         <Route path="/admin/historial-ventas" element={<HistorialVentas />} />
+        <Route path="/admin/reportes" element={<ReportesAdmin />} />
+        <Route path="/admin/gestionar-administradores" element={<GestionarAdministradores />} />
       </Routes>
     </div>
   );

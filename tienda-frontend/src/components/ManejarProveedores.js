@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { buscarProveedoresPorCategoria, obtenerArticulosPorProveedor, crearProveedor } from '../services/ProveedorService'; 
+import { useNavigate } from 'react-router-dom';  
 import '../estilos/ManejarProveedores.css';
 
 const ManejarProveedores = () => {
+
   const [proveedores, setProveedores] = useState([]);
+  const navigate = useNavigate();  
   const [articulos, setArticulos] = useState({});
   const [nuevoProveedor, setNuevoProveedor] = useState({
     nombre: '',
@@ -14,6 +17,9 @@ const ManejarProveedores = () => {
     categoria: ''
   });
   const [categoriaFiltro, setCategoriaFiltro] = useState('');
+
+  const volverAlDashboard = () => {
+    navigate('/admin/dashboard');};
 
   const buscarProveedores = async () => {
     try {
@@ -58,6 +64,7 @@ const ManejarProveedores = () => {
 
   return (
     <div className="manejar-proveedores-container">
+      <button onClick={volverAlDashboard}>Atrás</button>
       <h2>Manejar Proveedores</h2>
 
       <input

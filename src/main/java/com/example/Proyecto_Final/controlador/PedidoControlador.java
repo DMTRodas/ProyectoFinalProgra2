@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -38,23 +39,22 @@ public class PedidoControlador {
         if (nuevoPedido.getCarrito() == null || nuevoPedido.getCarrito().isEmpty()) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-
+    
         String idPedidoCorto = UUID.randomUUID().toString().substring(0, 8);
         nuevoPedido.setIdPedido(idPedidoCorto);
-
+        nuevoPedido.setFecha(LocalDateTime.now()); 
+    
         nuevoPedido.getCarrito().forEach(articulo -> {
-            articuloServicio.actualizarStock(articulo.getId(), articulo.getCantidad(),"salida");
+            articuloServicio.actualizarStock(articulo.getId(), articulo.getCantidad(), "salida");
         });
-
+    
         carritoServicio.vaciarCarrito(nuevoPedido.getIdCliente());
-
         pedidoServicio.guardarPedido(nuevoPedido);
-
+    
         Map<String, Object> response = new HashMap<>();
         response.put("message", "Pedido creado con éxito");
         response.put("idPedido", nuevoPedido.getIdPedido());
         return ResponseEntity.ok(response);
-        
-    }
+    }    
     
 }

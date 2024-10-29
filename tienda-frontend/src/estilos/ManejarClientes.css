@@ -27,7 +27,7 @@
 }
 
 .btn-editar {
-  background-color: #a89333; 
+  background-color: #131211; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -40,7 +40,7 @@
 }
 
 .btn-eliminar {
-  background-color: #8d2821; 
+  background-color: #141313; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -49,19 +49,5 @@
 }
 
 .btn-eliminar:hover {
-  background-color: #5a1515; 
-}
-
-.btn-atras {
-  background-color: #13485a;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.btn-atras:hover {
-  background-color: #0b2d3d;
+  background-color: #5e1010; 
 }

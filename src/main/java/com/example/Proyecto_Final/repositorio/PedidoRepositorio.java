@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface PedidoRepositorio extends MongoRepository<Pedido, String> {
     List<Pedido> findByIdCliente(String idCliente); 
+    List<Pedido> findByNombre(String nombre);
 }
 

@@ -1,10 +1,15 @@
 import React from 'react';
+import '../estilos/Nosotros.css';
 
 const Nosotros = () => {
   return (
-    <div>
-      <h1>Nosotros</h1>
-      {/* Pendiente agregar el texto*/}
-    </div>);
-};
+    <div className="nosotros-container">
+      <img 
+        src="/images/nosotros.png" 
+        alt="Nosotros" 
+        className="section-image"/>
+    </div>
+  );
+}
+
 export default Nosotros;
